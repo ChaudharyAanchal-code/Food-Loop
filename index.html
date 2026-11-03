@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FoodLoop connects surplus food donors with community organizations and people who need food.">
+  <title>FoodLoop | Share More, Waste Less</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" data-page="home"><span class="brand-mark">f</span><span>foodloop<span class="brand-dot">.</span><small>COMMUNITY FOOD NETWORK</small></span></a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="nav-list">
+        <button class="nav-link active" data-page="home"><span>⌂</span> Overview</button>
+        <button class="nav-link" data-page="browse"><span>⌕</span> Find food <b class="nav-count" id="navAvailable">0</b></button>
+        <button class="nav-link" data-page="donate"><span>＋</span> Donate food</button>
+        <button class="nav-link" data-page="requests"><span>▤</span> My requests</button>
+        <button class="nav-link" data-page="dashboard"><span>▥</span> Impact dashboard</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="side-note"><div class="note-icon">✳</div><strong>A little extra can mean a lot.</strong><p>Every safe meal shared is a step toward a kinder, less wasteful community.</p></div>
+        <button class="profile-mini" id="profileBtn"><span class="avatar">AC</span><span><b>Community Member</b><small>Demo account</small></span><span class="dots">···</span></button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuBtn" aria-label="Open menu">☰</button>
+        <div class="breadcrumb">Community <span>/</span> <b id="pageCrumb">Overview</b></div>
+        <div class="top-actions"><span class="location-pill">⌖ <span id="locationLabel">Your community</span></span><button class="icon-btn" id="resetBtn" title="Reset demo data">↻</button><span class="avatar top-avatar">AC</span></div>
+      </header>
+
+      <section class="page active" id="page-home">
+        <div class="welcome-row"><div><div class="eyebrow"><span class="eyebrow-dot"></span> GOOD THINGS HAPPEN WHEN WE SHARE</div><h1>Share more.<br><em>Waste less.</em></h1><p class="lead">A little extra food can make someone's day. Connect with your community and give good food another chance.</p><div class="hero-meta"><span><strong>4.8k</strong> meals shared</span><span><strong>285</strong> active donors</span><span><strong>72</strong> partner groups</span></div><div class="hero-actions"><button class="btn btn-primary" data-go="donate">＋ Share surplus food</button><button class="btn btn-light" data-go="browse">Explore available food <span>→</span></button></div></div>
+          <div class="hero-art"><div class="art-circle"></div><div class="art-card art-card-one"><span class="food-emoji">🥗</span><div><b>Fresh food, shared</b><small>Goodness goes around</small></div><span class="tiny-check">✓</span></div><div class="art-card art-card-two"><span class="food-emoji">🍞</span><div><b>Give food a second life</b><small>One community at a time</small></div></div><div class="art-leaf leaf-one">✳</div><div class="art-leaf leaf-two">✦</div><div class="art-caption">GOOD FOOD<br>SHOULD BE SHARED.</div></div>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-icon green">♧</div><div class="stat-label">Food donations listed</div><div class="stat-number" id="statDonations">0</div><div class="stat-foot">Across the community</div></article>
+          <article class="stat-card"><div class="stat-icon orange">♡</div><div class="stat-label">Meals made available</div><div class="stat-number" id="statMeals">0</div><div class="stat-foot">Estimated servings shared</div></article>
+          <article class="stat-card"><div class="stat-icon blue">↗</div><div class="stat-label">Successful handovers</div><div class="stat-number" id="statCompleted">0</div><div class="stat-foot">Marked as collected</div></article>
+          <article class="stat-card"><div class="stat-icon purple">◎</div><div class="stat-label">Active food listings</div><div class="stat-number" id="statActive">0</div><div class="stat-foot">Ready to be requested</div></article>
+        </div>
+        <div class="section-heading"><div><div class="eyebrow">MAKE A DIFFERENCE TODAY</div><h2>How FoodLoop works</h2></div><span class="section-aside">Three simple steps</span></div>
+        <div class="steps-grid">
+          <article class="step-card"><span class="step-number">01</span><div class="step-illustration">🥘</div><h3>List surplus food</h3><p>Donors share details about safe, untouched surplus food, quantity and pickup time.</p></article>
+          <article class="step-card"><span class="step-number">02</span><div class="step-illustration">🤝</div><h3>Connect with someone</h3><p>Community members and organizations discover listings and send a request.</p></article>
+          <article class="step-card"><span class="step-number">03</span><div class="step-illustration">💚</div><h3>Collect & share</h3><p>Coordinate collection, complete the handover and celebrate the impact.</p></article>
+        </div>
+        <div class="section-heading listing-heading"><div><div class="eyebrow">FRESH OPPORTUNITIES</div><h2>Food looking for a home</h2></div><button class="text-link" data-go="browse">View all listings →</button></div>
+        <div class="food-grid" id="homeFoodGrid"></div>
+        <div class="safety-strip"><div class="safety-symbol">✳</div><div><b>Food safety comes first</b><p>Only list food that is safe to eat. Check preparation dates, storage conditions and use-by times before sharing.</p></div><a href="https://www.fssai.gov.in/" target="_blank" rel="noopener">Food safety guidance ↗</a></div>
+      </section>
+
+      <section class="page" id="page-browse">
+        <div class="page-intro"><div class="eyebrow">DISCOVER & CONNECT</div><h1>Find food <em>near you.</em></h1><p>Explore available surplus food shared by people and businesses in the community.</p></div>
+        <div class="filter-bar"><div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Search food, donor or location..."></div><select id="categoryFilter"><option value="">All categories</option><option>Prepared meals</option><option>Bakery</option><option>Fruits & vegetables</option><option>Packaged food</option><option>Dairy</option></select><select id="typeFilter"><option value="">All food types</option><option>Vegetarian</option><option>Non-vegetarian</option></select><select id="sortFilter"><option value="soon">Pickup deadline</option><option value="new">Recently added</option><option value="qty">Quantity: high to low</option></select></div>
+        <div class="results-line"><span id="resultsCount">0 listings</span><span>Free community donations <span class="green-dot">●</span></span></div>
+        <div class="food-grid" id="browseFoodGrid"></div>
+        <div class="empty-state hidden" id="browseEmpty"><span>🥬</span><h3>No food found</h3><p>Try changing your search or filters.</p><button class="btn btn-light" id="clearFilters">Clear filters</button></div>
+      </section>
+
+      <section class="page" id="page-donate">
+        <div class="page-intro"><div class="eyebrow">TURN EXTRA INTO ENOUGH</div><h1>Share the <em>goodness.</em></h1><p>Have safe surplus food? Add a listing so someone nearby can request and collect it.</p></div>
+        <div class="form-layout"><form id="donationForm" class="panel form-panel">
+          <div class="form-title"><span class="form-icon">＋</span><div><h2>Food donation details</h2><p>Fields marked with * are required.</p></div></div>
+          <div class="form-grid">
+            <label class="field full">Food name *<input name="foodName" required maxlength="60" placeholder="e.g. Vegetable pulao, fresh bread"></label>
+            <label class="field">Food category *<select name="category" required><option value="">Select category</option><option>Prepared meals</option><option>Bakery</option><option>Fruits & vegetables</option><option>Packaged food</option><option>Dairy</option></select></label>
+            <label class="field">Food type *<select name="foodType" required><option value="">Select type</option><option>Vegetarian</option><option>Non-vegetarian</option></select></label>
+            <label class="field">Quantity (servings / packs) *<input name="quantity" type="number" min="1" max="10000" required placeholder="e.g. 25"></label>
+            <label class="field">Donor / organization name *<input name="donor" required maxlength="60" placeholder="Your name or organization"></label>
+            <label class="field full">Pickup address / area *<input name="location" required maxlength="120" placeholder="Street, area, city"></label>
+            <label class="field">Prepared / packed date & time *<input name="preparedAt" type="datetime-local" required></label>
+            <label class="field">Last safe collection time *<input name="deadline" type="datetime-local" required></label>
+            <label class="field full">Food handling & storage notes *<textarea name="notes" rows="3" required maxlength="350" placeholder="Mention how the food was stored, packed and any relevant allergen information."></textarea></label>
+            <label class="check-field full"><input type="checkbox" name="safety" required><span>I confirm that this food is safe, has been handled hygienically, and is suitable for donation. I will not list food that has been served to customers or is unsafe.</span></label>
+          </div>
+          <div class="form-actions"><button type="reset" class="btn btn-light">Clear form</button><button type="submit" class="btn btn-primary">Publish donation <span>→</span></button></div>
+        </form>
+        <aside class="panel tips-panel"><div class="tips-art">🥗</div><div class="eyebrow">BE A RESPONSIBLE DONOR</div><h3>Good food deserves good care.</h3><ul><li>Donate only safe, untouched surplus food.</li><li>Use clean, food-grade, covered packaging.</li><li>Keep hot and cold food at suitable temperatures.</li><li>Clearly share preparation and last-consumption times.</li><li>Arrange pickup early enough for safe consumption.</li></ul><div class="tips-alert">⚠ FoodLoop is a student demonstration platform. Listings are not independently inspected or certified.</div><a href="https://www.fssai.gov.in/upload/uploadfiles/files/Gazette_Notification_Surplus_Food_06_08_2019.pdf" target="_blank" rel="noopener" class="text-link">Read FSSAI surplus food regulations ↗</a></aside></div>
+      </section>
+
+      <section class="page" id="page-requests">
+        <div class="page-intro"><div class="eyebrow">YOUR COMMUNITY ACTIVITY</div><h1>My <em>requests.</em></h1><p>Review food requests you've placed and update the collection status for your demo listings.</p></div>
+        <div class="tabs"><button class="tab active" data-tab="all">All requests</button><button class="tab" data-tab="pending">Pending</button><button class="tab" data-tab="approved">Approved</button><button class="tab" data-tab="collected">Collected</button></div>
+        <div class="request-list" id="requestList"></div>
+        <div class="empty-state hidden" id="requestsEmpty"><span>📦</span><h3>No requests yet</h3><p>Browse available food and request a donation to see it here.</p><button class="btn btn-primary" data-go="browse">Find food</button></div>
+      </section>
+
+      <section class="page" id="page-dashboard">
+        <div class="page-intro"><div class="eyebrow">SMALL ACTS, BIG IMPACT</div><h1>Community <em>impact.</em></h1><p>A snapshot of food sharing activity recorded in this browser.</p></div>
+        <div class="impact-highlight"><div><span class="eyebrow">TOTAL MEALS MADE AVAILABLE</span><div class="impact-number" id="impactMeals">0</div><p>Estimated servings listed by community donors.</p></div><div class="impact-emoji">🌱</div></div>
+        <div class="stats-grid dashboard-stats">
+          <article class="stat-card"><div class="stat-icon green">♧</div><div class="stat-label">Total listings</div><div class="stat-number" id="dashDonations">0</div></article>
+          <article class="stat-card"><div class="stat-icon blue">✓</div><div class="stat-label">Collected</div><div class="stat-number" id="dashCollected">0</div></article>
+          <article class="stat-card"><div class="stat-icon orange">◷</div><div class="stat-label">Awaiting pickup</div><div class="stat-number" id="dashPending">0</div></article>
+          <article class="stat-card"><div class="stat-icon purple">◎</div><div class="stat-label">Active listings</div><div class="stat-number" id="dashActive">0</div></article>
+        </div>
+        <div class="dashboard-columns"><div class="panel chart-panel"><div class="panel-heading"><div><h3>Donation categories</h3><p>Breakdown of current food listings</p></div></div><div id="categoryChart" class="bar-chart"></div></div><div class="panel activity-panel"><div class="panel-heading"><div><h3>Recent activity</h3><p>Latest community updates</p></div></div><div id="recentActivity"></div></div></div>
+        <div class="disclaimer">Impact figures are calculated from demo listings and estimated servings. They are not verified measures of food delivered or environmental impact.</div>
+      </section>
+
+      <footer class="footer"><span>© 2026 FoodLoop Community Network</span><span>Made with care <b>♥</b> for a less wasteful world</span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="modalBackdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="modalClose" aria-label="Close">×</button><div id="modalContent"></div></div></div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
